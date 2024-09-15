@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KCawM4WTyO4KNudI6hIYS8nb3ferbjWbKtdcfDkq4N4=",
+  "Hash": "gh/OKpLF4qk12ZOxdEcmzyH6/qY8N9BaydUTYY7mGVI=",
   "Source": "DemoMVC",
   "BasePath": "_content/DemoMVC",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\PTPMQL\\DemoMVC\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DemoMVC.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\PTPMQL\\DemoMVC\\wwwroot\\css\\Login.css",
+      "SourceId": "DemoMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PTPMQL\\DemoMVC\\wwwroot\\",
+      "BasePath": "_content/DemoMVC",
+      "RelativePath": "css/Login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Login.css"
     },
     {
       "Identity": "D:\\PTPMQL\\DemoMVC\\wwwroot\\css\\site.css",

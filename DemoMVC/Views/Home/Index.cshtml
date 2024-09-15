@@ -2,7 +2,15 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<form asp-action="Index">
+    <label>Nhap ho ten:</label>
+    <input type="text" name="FullName">
+    <label>Nhap dia chi:</label>
+    <input type="text" name="Address">
+    <input type="submit" value="Gui du lieu">
+</form>
+
+// dotnet ef migrations add "Migrations_Note"
+// dotnet ef database update
+// dotnet ef remove
+// dotnet aspnet-codegenerator controller -name StudentController -m Student -dc DemoMVC.Data.ApplicationDbContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries --databaseProvider sqlite -f
