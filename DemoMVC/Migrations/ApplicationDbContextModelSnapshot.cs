@@ -31,7 +31,7 @@ namespace DemoMVC.Migrations
 
                     b.HasKey("EmployeeID");
 
-                    b.ToTable("Employee");
+                    b.ToTable("Employee", (string)null);
                 });
 
             modelBuilder.Entity("DemoMVC.Models.Entities.Student", b =>
@@ -49,7 +49,7 @@ namespace DemoMVC.Migrations
 
                     b.HasKey("StudentID");
 
-                    b.ToTable("Student");
+                    b.ToTable("Student", (string)null);
                 });
 #pragma warning restore 612, 618
         }

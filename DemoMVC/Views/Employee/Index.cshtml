@@ -1,4 +1,4 @@
-@model IEnumerable<DemoMVC.Models.Entities.Student>
+@model IEnumerable<DemoMVC.Models.Entities.Employee>
 
 @{
     ViewData["Title"] = "Index";
@@ -7,12 +7,8 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create" class=" btn btn-primary">Create New</a>
+    <a asp-action="Create">Create New</a>
 </p>
-<form asp-action="Index" class="card justify-content-center align-content-center ">
-    <input type="text" name="keySearch" class="form-control" placeholder="nhap key...." value="@ViewBag.Input">
-    <input type="submit" value="Search" class="btn btn-outline-primary">
-</form>
 <table class="table">
     <thead>
         <tr>
@@ -35,9 +31,9 @@
                 @Html.DisplayFor(modelItem => item.Address)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.StudentID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.StudentID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.StudentID">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.EmployeeID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.EmployeeID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.EmployeeID">Delete</a>
             </td>
         </tr>
 }

@@ -10,22 +10,22 @@ using DemoMVC.Models.Entities;
 
 namespace DemoMVC.Controllers
 {
-    public class StudentController : Controller
+    public class EmployeeController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public StudentController(ApplicationDbContext context)
+        public EmployeeController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Student
+        // GET: Employee
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Student.ToListAsync());
+            return View(await _context.Employee.ToListAsync());
         }
 
-        // GET: Student/Details/5
+        // GET: Employee/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace DemoMVC.Controllers
                 return NotFound();
             }
 
-            var student = await _context.Student
-                .FirstOrDefaultAsync(m => m.StudentID == id);
-            if (student == null)
+            var employee = await _context.Employee
+                .FirstOrDefaultAsync(m => m.EmployeeID == id);
+            if (employee == null)
             {
                 return NotFound();
             }
 
-            return View(student);
+            return View(employee);
         }
 
-        // GET: Student/Create
+        // GET: Employee/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Student/Create
+        // POST: Employee/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("StudentID,FullName,Address")] Student student)
+        public async Task<IActionResult> Create([Bind("EmployeeID,FullName,Address")] Employee employee)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(student);
+                _context.Add(employee);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(student);
+            return View(employee);
         }
 
-        // GET: Student/Edit/5
+        // GET: Employee/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace DemoMVC.Controllers
                 return NotFound();
             }
 
-            var student = await _context.Student.FindAsync(id);
-            if (student == null)
+            var employee = await _context.Employee.FindAsync(id);
+            if (employee == null)
             {
                 return NotFound();
             }
-            return View(student);
+            return View(employee);
         }
 
-        // POST: Student/Edit/5
+        // POST: Employee/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("StudentID,FullName,Address")] Student student)
+        public async Task<IActionResult> Edit(string id, [Bind("EmployeeID,FullName,Address")] Employee employee)
         {
-            if (id != student.StudentID)
+            if (id != employee.EmployeeID)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace DemoMVC.Controllers
             {
                 try
                 {
-                    _context.Update(student);
+                    _context.Update(employee);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!StudentExists(student.StudentID))
+                    if (!EmployeeExists(employee.EmployeeID))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace DemoMVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(student);
+            return View(employee);
         }
 
-        // GET: Student/Delete/5
+        // GET: Employee/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -124,40 +124,34 @@ namespace DemoMVC.Controllers
                 return NotFound();
             }
 
-            var student = await _context.Student
-                .FirstOrDefaultAsync(m => m.StudentID == id);
-            if (student == null)
+            var employee = await _context.Employee
+                .FirstOrDefaultAsync(m => m.EmployeeID == id);
+            if (employee == null)
             {
                 return NotFound();
             }
 
-            return View(student);
+            return View(employee);
         }
 
-        // POST: Student/Delete/5
+        // POST: Employee/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var student = await _context.Student.FindAsync(id);
-            if (student != null)
+            var employee = await _context.Employee.FindAsync(id);
+            if (employee != null)
             {
-                _context.Student.Remove(student);
+                _context.Employee.Remove(employee);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool StudentExists(string id)
+        private bool EmployeeExists(string id)
         {
-            return _context.Student.Any(e => e.StudentID == id);
-        }
-        [HttpPost]
-        public async Task<IActionResult> Index(string keySearch){
-            var Result = await _context.Student.Where(x => x.StudentID.Contains(keySearch)).ToListAsync();
-            ViewData["Input"]=keySearch;
-             return View(Result);
+            return _context.Employee.Any(e => e.EmployeeID == id);
         }
     }
 }
