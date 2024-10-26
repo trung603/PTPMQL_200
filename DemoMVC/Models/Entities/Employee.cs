@@ -1,12 +1,8 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace DemoMVC.Models.Entities
 {
-    public class Employee
+    public class Employee : Person
     {
-        [Key]
-        public required string EmployeeID { get; set; }
-        public required String FullName { get; set; }
-        public required String Address { get; set; }
+        public string EmployeeID { get; set; }
+        public string Company { get; set; }
     }
 }

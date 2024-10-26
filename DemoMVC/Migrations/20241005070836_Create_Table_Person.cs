@@ -5,22 +5,22 @@
 namespace DemoMVC.Migrations
 {
     /// <inheritdoc />
-    public partial class Create_Table_Employee : Migration
+    public partial class Create_Table_Person : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Employee",
+                name: "Person",
                 columns: table => new
                 {
-                    EmployeeID = table.Column<string>(type: "TEXT", nullable: false),
+                    PersonID = table.Column<string>(type: "TEXT", nullable: false),
                     FullName = table.Column<string>(type: "TEXT", nullable: false),
                     Address = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Employee", x => x.EmployeeID);
+                    table.PrimaryKey("PK_Person", x => x.PersonID);
                 });
         }
 
@@ -28,7 +28,7 @@ namespace DemoMVC.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Employee");
+                name: "Person");
         }
     }
 }
