@@ -20,11 +20,24 @@ namespace DemoMVC.Controllers
         }
 
         // GET: Employee
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.Employee.ToListAsync());
-        }
+        
+        public async Task<IActionResult> Index(string searchString)
+{
+    if (_context.Employee == null)
+    {
+        return Problem("Entity set 'DemoMVC.Employee'  is null.");
+    }
 
+    var employees = from m in _context.Employee
+                select m;
+
+    if (!String.IsNullOrEmpty(searchString))
+    {
+        employees = employees.Where(s => s.EmployeeID!.ToUpper().Contains(searchString.ToUpper()));
+    }
+
+    return View(await employees.ToListAsync());
+}
         // GET: Employee/Details/5
         public async Task<IActionResult> Details(string id)
         {

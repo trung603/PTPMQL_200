@@ -24,6 +24,7 @@ namespace DemoMVC.Controllers
         {
             return View(await _context.Student.ToListAsync());
         }
+        
 
         // GET: Student/Details/5
         public async Task<IActionResult> Details(string id)
@@ -42,6 +43,7 @@ namespace DemoMVC.Controllers
 
             return View(student);
         }
+        
 
         // GET: Student/Create
         public IActionResult Create()
